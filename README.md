@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The app was deployed to Firebase and live on https://todeedoo-7dded.web.app
+
 ## Available Scripts
 
 In the project directory, you can run:
