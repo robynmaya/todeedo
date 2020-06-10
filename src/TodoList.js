@@ -1,7 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = ({todos, onMarkFinished, onDeleteTodo}) => {
+const TodoList = ({todos, onChangeTodo, onMarkFinished, onDeleteTodo}) => {
   return (
     <ul className='TodoList'>
       {todos.map(todo => (
@@ -9,6 +9,7 @@ const TodoList = ({todos, onMarkFinished, onDeleteTodo}) => {
           <Todo
             {...{
               todo,
+              onChangeTodo,
               onMarkFinished,
               onDeleteTodo
             }}

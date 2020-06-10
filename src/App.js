@@ -6,7 +6,7 @@ import TodoInput from './TodoInput';
 import shortid from 'shortid';
 import './App.css';
 
-function App() {
+const App = () => {
   const [ todos, setTodos ] = useState([]);
   const [ filter, setFilter ] = useState("all");
 
@@ -18,13 +18,20 @@ function App() {
     }]);
   };
 
+  const updateTodo = (todos, id, prop) => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+    // copy the todo object and merge it with the new property object
+    const newTodo = {...todos[todoIndex], ...prop};
+    todos[todoIndex] = newTodo;
+    return [...todos];
+  };
+
+  const handleChangeTodo = (id, text) => {
+    setTodos(todos => updateTodo(todos, id, {text}));
+  };
+
   const handleMarkFinished = (id, finished) => {
-      setTodos(todos => {
-        const todoIndex = todos.findIndex(todo => todo.id === id);
-        const todo = todos[todoIndex];
-        todos[todoIndex] = {...todo, finished};
-        return [...todos];
-      });
+    setTodos(todos => updateTodo(todos, id, {finished}));
   };
 
   const handleDeleteTodo = (id) => {
@@ -58,6 +65,7 @@ function App() {
       <TodoList
         {...{
           todos: filteredTodos,
+          onChangeTodo: handleChangeTodo,
           onMarkFinished: handleMarkFinished,
           onDeleteTodo: handleDeleteTodo
         }}        
