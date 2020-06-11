@@ -9,7 +9,7 @@ const TodoInput = ({onNewTodo}) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (!value.trim()) {
+    if (!value.trim() || value.length < 2) {
       return;
     }
     onNewTodo(value);
@@ -17,9 +17,14 @@ const TodoInput = ({onNewTodo}) => {
   };
 
   return (
-    <form className='TodoInput' onSubmit={handleSubmit}>
-      <input 
-        placeholder="Enter a new todo"
+    <form 
+      className='TodoInput'
+      onSubmit={handleSubmit}
+    >
+      <label htmlFor="todoInput">Enter a new todo:</label>
+      <input
+        placeholder="Feed the dogs"
+        id="todoInput"
         value={value}
         onChange={handleChange} 
       />
