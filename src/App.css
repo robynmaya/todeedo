@@ -31,6 +31,7 @@
   list-style-type: none;
   text-align: center;
   padding: 0;
+  margin-bottom: 5em;
 }
 
 .Todo {
@@ -81,11 +82,26 @@
 }
 
 .TodoInput {
-  margin-top: 3em;
+  width: 50%;
+  margin: 2em auto;
   text-align: center;
+  position: relative;
+}
+
+.TodoInput label {
+  display: block;
+  text-align: left;
+  color: #505050;
 }
 
 .TodoInput input {
-  width: 50%;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1em;
   padding: 1em;
+}
+
+.Gif {
+  display: block;
+  margin: auto;
 }
